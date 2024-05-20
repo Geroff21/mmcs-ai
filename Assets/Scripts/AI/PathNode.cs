@@ -68,7 +68,7 @@ public class PathNode //: MonoBehaviour
     /// <returns></returns>
     public static float Dist(PathNode a, PathNode b)
     {
-        return Vector3.Distance(a.body.transform.position, b.body.transform.position) + 40 * Mathf.Abs(a.body.transform.position.y - b.body.transform.position.y);
+        return Vector3.Distance(a.body.transform.position, b.body.transform.position) + 20 * Mathf.Abs(a.body.transform.position.y - b.body.transform.position.y);
     }
     
     /// <summary>
@@ -77,6 +77,14 @@ public class PathNode //: MonoBehaviour
     public void Illuminate()
     {
         body.GetComponent<Renderer>().material.color = Color.red;
+    }
+
+    /// <summary>
+    /// Подсветить вершину, на которую нельзя вставать (там, где коробка) - перекрасить в желтый
+    /// </summary>
+    public void IlluminateNotWalkable()
+    {
+        body.GetComponent<Renderer>().material.color = Color.yellow;
     }
     
     /// <summary>
